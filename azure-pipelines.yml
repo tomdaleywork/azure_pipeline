@@ -19,21 +19,21 @@ steps:
     python -m pip install --upgrade pip
     pip install -r requirements.txt
 
-    apt-get update
-    apt-get install -y unzip xvfb libxi6 libgconf-2-4 xdg-utils lsb-release libxtst6 libnss3 libnspr4
-    apt-get install -y libgtk-3-0 libatspi2.0-0 libatk-bridge2.0-0 libasound2 libappindicator3-1 fonts-liberation
+    sudo apt-get update
+    sudo apt-get install -y unzip xvfb libxi6 libgconf-2-4 xdg-utils lsb-release libxtst6 libnss3 libnspr4
+    sudo apt-get install -y libgtk-3-0 libatspi2.0-0 libatk-bridge2.0-0 libasound2 libappindicator3-1 fonts-liberation
 
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    dpkg -i google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
     sudo apt install --assume-yes --fix-broken
 
-    apt-get upgrade -y
+    sudo apt-get upgrade -y
 
-    wget https://chromedriver.storage.googleapis.com/78.0.3904.70/chromedriver_linux64.zip
+    wget https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip
     unzip chromedriver_linux64.zip
 
-    mv chromedriver /usr/bin/chromedriver
-    chmod +x /usr/bin/chromedriver
+    sudo mv chromedriver /usr/bin/chromedriver
+    sudo chmod +x /usr/bin/chromedriver
 
     google-chrome-stable --version
 
