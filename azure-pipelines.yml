@@ -43,9 +43,6 @@ steps:
   displayName: 'pytest'
 
 - script:
-    export FLASK_APP=main.py &&
-    export FLASK_ENV=development &&
-    flask &&
-    nohup "flask run" &&
+    nohup "export FLASK_APP=main.py && export FLASK_ENV=development && flask run" &&
     python integration.py
   displayName: 'Selenium'
