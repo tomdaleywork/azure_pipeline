@@ -48,6 +48,6 @@ steps:
     FLASK_APP: main.py  
     FLASK_ENV: development
   displayName: Start Flask
--script:
+- script:
     python integration.py
   displayName: 'Selenium'
