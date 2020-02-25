@@ -10,9 +10,6 @@ strategy:
     Python37:
       python.version: '3.7'
 
-jobs:
-- job: Configuration
-
   steps:
   - task: UsePythonVersion@0
     inputs:
@@ -37,18 +34,10 @@ jobs:
 
     displayName: 'Install dependencies'
 
-- job: Unit
-  displayName: Unit Tests
-
-  steps:
   - script: |
       pytest
     displayName: 'pytest'
 
-- job: Integration
-  dependsOn: []
-
-  steps:
   - script:
       nohup flask run &
     env:
