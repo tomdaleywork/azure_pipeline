@@ -51,6 +51,8 @@ stages:
 
     - job: Integration
       dependsOn: []
+
+      steps:
       - script:
           nohup flask run &
         env:
