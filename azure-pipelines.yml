@@ -9,11 +9,10 @@ strategy:
   matrix:
     Python37:
       python.version: '3.7'
-  
+
 jobs:
 - job: Configuration
-  pool:
-    vmImage: 'ubuntu-latest'
+
   steps:
   - task: UsePythonVersion@0
     inputs:
@@ -40,8 +39,6 @@ jobs:
 
 - job: Unit
   displayName: Unit Tests
-  pool:
-    vmImage: 'ubuntu-latest'
 
   steps:
   - script: |
@@ -50,8 +47,6 @@ jobs:
 
 - job: Integration
   dependsOn: []
-  pool:
-    vmImage: 'ubuntu-latest'
 
   steps:
   - script:
