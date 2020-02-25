@@ -16,26 +16,20 @@ steps:
     versionSpec: '$(python.version)'
   displayName: 'Use Python $(python.version)'
 
-- script: 
+- script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
-    
     sudo apt-get update
     sudo apt-get install -y unzip xvfb libxi6 libgconf-2-4 xdg-utils lsb-release libxtst6 libnss3 libnspr4
     sudo apt-get install -y libgtk-3-0 libatspi2.0-0 libatk-bridge2.0-0 libasound2 libappindicator3-1 fonts-liberation
-    
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i google-chrome-stable_current_amd64.deb
     sudo apt install --assume-yes --fix-broken
-    
     wget https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip
     unzip chromedriver_linux64.zip
-    
     sudo mv chromedriver /usr/bin/chromedriver
     sudo chmod +x /usr/bin/chromedriver
-    
     google-chrome-stable --version
-    
     pip install pytest pytest-azurepipelines
 
   displayName: 'Install dependencies'
@@ -44,13 +38,13 @@ steps:
     pytest
   displayName: 'pytest'
 
-- script:
+- script: |
     nohup flask run &
   env:
     FLASK_APP: main.py  
     FLASK_ENV: development
   displayName: Start Flask
 
-- script:
+- script: |
     python integration.py
   displayName: 'Run Selenium'
