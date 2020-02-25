@@ -12,6 +12,8 @@ strategy:
   
 jobs:
 - job: Configuration
+  pool:
+    vmImage: 'ubuntu-latest'
   steps:
   - task: UsePythonVersion@0
     inputs:
@@ -38,6 +40,8 @@ jobs:
 
 - job: Unit
   displayName: Unit Tests
+  pool:
+    vmImage: 'ubuntu-latest'
 
   steps:
   - script: |
@@ -46,6 +50,8 @@ jobs:
 
 - job: Integration
   dependsOn: []
+  pool:
+    vmImage: 'ubuntu-latest'
 
   steps:
   - script:
